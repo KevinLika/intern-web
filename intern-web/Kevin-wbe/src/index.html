@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home page</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <button class="burger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="logo">
+      <img src="img/Logo.png" alt="Logo">
+    </div>
+    <nav class="nav-links">
+      <a href="#">Shop</a>
+      <a href="#">About Almased</a>
+      <a href="#">Science</a>
+      <a href="#">Results</a>
+      <a href="#">Health Goals</a>
+      <a href="#">How to Use</a>
+      <a href="#">Learn</a>
+    </nav>
+    <div class="icons">
+      <!-- Search Icon -->
+      <a href="#">
+        <img src="img/MagnifyingGlass.svg" alt="Search Icon" width="21" height="21">
+      </a>
+      <!-- User Icon -->
+      <a href="#">
+        <img src="img/User.svg" alt="User Icon" width="25" height="25">
+      </a>
+      <!-- Shopping Cart Icon -->
+      <a href="#">
+        <img src="img/ShoppingCartSimple.svg" alt="Shopping Cart Icon" width="25" height="25">
+      </a>
+    </div>
+  </header>
+  <script>
+  document.querySelector('.burger').addEventListener('click', function() {
+    this.classList.toggle('open');
+    document.querySelector('.nav-links').classList.toggle('open');
+  });
+  </script>
+</body>
+</html>
