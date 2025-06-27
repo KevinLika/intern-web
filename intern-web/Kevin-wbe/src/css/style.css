@@ -48,7 +48,7 @@ header {
 }
 
 .nav-links a:hover {
-  background-color: green;
+  background-color: var(--almased-green);
   color: white;
   border-radius: 50px;
   width: 90px;
@@ -710,7 +710,7 @@ header {
     box-sizing: border-box;
   }
   .nav-links a:hover {
-    background-color: green;
+    background-color: var(--almased-green);
     color: #fff;
   }
   .burger span {
