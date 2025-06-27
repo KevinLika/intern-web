@@ -75,10 +75,99 @@
       </div>
     </div>
   </div>
+  <section class="almased-tabs">
+    <div class="tab-list" role="tablist">
+      <button class="tab active" role="tab" aria-selected="true" data-title="Daily Nutrition Meal">
+        <span class="tab-plus">+</span>
+        <span class="tab-label">Daily Nutrition Meal</span>
+      </button>
+      <button class="tab" role="tab" data-title="Weight Loss">
+        <span class="tab-plus">+</span>
+        <span class="tab-label">Weight Loss</span>
+      </button>
+      <button class="tab" role="tab" data-title="Muscle Preservation">
+        <span class="tab-plus">+</span>
+        <span class="tab-label">Muscle Preservation</span>
+      </button>
+      <button class="tab" role="tab" data-title="Muscle Gain">
+        <span class="tab-plus">+</span>
+        <span class="tab-label">Muscle Gain</span>
+      </button>
+      <button class="tab" role="tab" data-title="All Health Goals">
+        <span class="tab-plus">+</span>
+        <span class="tab-label">All Health Goals</span>
+      </button>
+    </div>
+    <div class="tab-panel active" role="tabpanel">
+      <div class="tab-content">
+        <div class="tab-text">
+          <h1>Get Started with your Almased Welcome Pack</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur. Et aenean auctor pharetra risus vel vestibulum vel.
+            Sed pellentesque nibh arcu risus eget massa.
+          </p>
+          <button class="tab-cta-button">SHOP NOW</button>
+        </div>
+        <div class="tab-image">
+          <img src="img/tab-photo.png" alt="Almased Welcome Pack" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="feature-icons-grid">
+    <div class="feature-icon-item">
+      <img src="img/1st.jpg" alt="Liver Detox Icon" width="90" height="87" />
+      <h3>Liver detox, Metabolism<br>&amp; Weight Management</h3>
+      <p class="feature-icon-desc">
+        (Heart health, Cut appetite,<br>
+        Diabetes/Glp1)
+      </p>
+    </div>
+    <div class="feature-icon-item">
+      <img src="img/2nd.jpg" alt="Beauty & Youth Icon" width="85" height="86" />
+      <h3>Beauty<br>&amp; Youth</h3>
+      <p class="feature-icon-desc">
+        Renewal of cells of Skin, Hair,<br>
+        Nails (Collagen production),<br>
+        HGH, biological age
+      </p>
+    </div>
+    <div class="feature-icon-item">
+      <img src="img/3rd.jpg" alt="Muscle, Strength & Endurance Icon" width="88" height="98" />
+      <h3>Muscle, Strength &amp;<br>Endurance.</h3>
+      <p class="feature-icon-desc">
+        Workout performance
+      </p>
+    </div>
+    <div class="feature-icon-item">
+      <img src="img/4th.jpg" alt="Quick Nutritious meal shake Icon" width="94" height="80" />
+      <h3>Quick Nutritious<br>meal shake</h3>
+      <p class="feature-icon-desc">
+        Boost energy, mental and<br>
+        physical performance for<br>
+        Busy lifestyles
+      </p>
+    </div>
+  </section>
   <script>
   document.querySelector('.burger').addEventListener('click', function() {
     this.classList.toggle('open');
     document.querySelector('.nav-links').classList.toggle('open');
+  });
+
+  const tabs = document.querySelectorAll('.tab-list .tab');
+  const tabTitle = document.querySelector('.tab-text h1');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      this.classList.add('active');
+      this.setAttribute('aria-selected', 'true');
+      tabTitle.textContent = this.getAttribute('data-title');
+    });
   });
   </script>
 </body>
