@@ -654,6 +654,9 @@ header {
     z-index: 201;
     padding: 0;
     order: 1;
+    position: fixed;
+    top: 24px;
+    left: 2vw;
   }
   .logo {
     flex: 1;
