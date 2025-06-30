@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home page</title>
   <link rel="stylesheet" href="css/style.css">
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
 </head>
 <body>
   <header>
@@ -149,6 +153,58 @@
       </p>
     </div>
   </section>
+  <section class="testimonial-slider">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <div class="testimonial-content">
+          <div class="testimonial-text-col">
+            <div class="testimonial-quote">
+              <span class="quote-mark">“</span>
+              <h2 class="testimonial-title">The energy I started to have was unbelievable.</h2>
+              <span class="quote-mark end">”</span>
+            </div>
+            <div class="testimonial-author">— Stephanie S.</div>
+            <button class="testimonial-btn">LEARN STEPHANIE’S STORY</button>
+            <div class="testimonial-arrows">
+              <span class="arrow-prev">&larr;</span>
+              <span class="arrow-next">&rarr;</span>
+            </div>
+          </div>
+          <div class="testimonial-image-col">
+            <img src="img/swiper.jpg" alt="Testimonial" />
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="swiper-slide">
+        <div class="testimonial-content">
+          <div class="testimonial-text-col">
+            <div class="testimonial-quote">
+              <span class="quote-mark">“</span>
+              <h2 class="testimonial-title">This is a different testimonial title.</h2>
+              <span class="quote-mark end">”</span>
+            </div>
+            <div class="testimonial-author">— Alex P.</div>
+            <button class="testimonial-btn">LEARN ALEX’S STORY</button>
+            <div class="testimonial-arrows">
+              <span class="arrow-prev">&larr;</span>
+              <span class="arrow-next">&rarr;</span>
+            </div>
+          </div>
+          <div class="testimonial-image-col">
+            <img src="img/swiper.jpg" alt="Testimonial" />
+          </div>
+        </div>
+      </div>
+      <!-- Add more slides as needed -->
+    </div>
+    <!-- Swiper Pagination (optional) -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
   <script>
   document.querySelector('.burger').addEventListener('click', function() {
     this.classList.toggle('open');
@@ -170,5 +226,20 @@
     });
   });
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Swiper JS initialization -->
+<script>
+  var swiper = new Swiper('.mySwiper', {
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.arrow-next',
+      prevEl: '.arrow-prev',
+    },
+  });
+</script>
 </body>
 </html>
