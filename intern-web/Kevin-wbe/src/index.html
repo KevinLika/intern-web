@@ -204,13 +204,119 @@
     <div class="swiper-pagination"></div>
   </div>
 </section>
+<section class="daily-benefits-section">
+  <h2 class="daily-benefits-title">Discover our daily health benefits</h2>
+  <div class="daily-benefits-cards">
+    <div class="benefit-card">
+      <div class="benefit-image">
+        <img src="img/active_travel.jpg" alt="Weight Loss" />
+        <span class="benefit-plus">+</span>
+      </div>
+      <div class="benefit-info">
+        <h3 class="benefit-title">Weight Loss</h3>
+        <p class="benefit-desc">
+          Scientifically proven natural weight loss. Detoxes your liver from fat so your whole metabolism works better.
+        </p>
+      </div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-image">
+        <img src="img/woman-size.jpg" alt="GLP-1 Support" />
+        <span class="benefit-plus">+</span>
+      </div>
+      <div class="benefit-info">
+        <h3 class="benefit-title">GLP-1 Support</h3>
+        <p class="benefit-desc">
+          Scientifically proven to retain 100% muscle mass while losing weight.
+        </p>
+      </div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-image">
+        <img src="img/upon-1.jpg" alt="Anti-aging (Skin, hair)" />
+        <span class="benefit-plus">+</span>
+      </div>
+      <div class="benefit-info">
+        <h3 class="benefit-title">Anti-aging (Skin, hair)</h3>
+        <p class="benefit-desc">
+          Use Almased for life to reduce biological age. Feel and look younger with glowing skin and healthy hair.
+        </p>
+      </div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-image">
+        <img src="img/tenis1.jpg" alt="Sports Energy" />
+        <span class="benefit-plus">+</span>
+      </div>
+      <div class="benefit-info">
+        <h3 class="benefit-title">Sports Energy</h3>
+        <p class="benefit-desc">
+          Almased helps you perform better and gives you lasting energy to power through your day.
+        </p>
+      </div>
+    </div>
+    <div class="benefit-card">
+  <div class="benefit-image">
+    <img src="img/tenis1.jpg" alt="Sports Energy" />
+    <span class="benefit-plus">+</span>
+  </div>
+  <div class="benefit-info">
+    <h3 class="benefit-title">Sports Energy</h3>
+    <p class="benefit-desc">
+      Almased helps you perform better and gives you lasting energy to power through your day.
+    </p>
+  </div>
+</div>
+  </div>
+  <div class="benefits-pagination">
+    <span class="benefits-bar active"></span>
+    <span class="benefits-bar"></span>
+    <span class="benefits-bar"></span>
+    <span class="benefits-bar"></span>
+    <span class="benefits-bar"></span>
+  </div>
+  <div class="benefits-arrows">
+    <button class="benefit-arrow prev" aria-label="Previous">&#8592;</button>
+    <button class="benefit-arrow next" aria-label="Next">&#8594;</button>
+  </div>
+</section>
+<section class="almased-stats-section">
+  <h2 class="almased-stats-title">The Global Leader in Metabolic Health</h2>
+  <div class="almased-stats-circles">
+    <div class="almased-stat-circle">
+      <div class="stat-value">100%</div>
+      <div class="stat-desc">muscle mass<br>preservation</div>
+    </div>
+    <div class="almased-stat-circle">
+      <div class="stat-value">113%</div>
+      <div class="stat-desc">more weight loss<br>than a low-fat diet</div>
+    </div>
+    <div class="almased-stat-circle">
+      <div class="stat-value">86%</div>
+      <div class="stat-desc">more fat loss</div>
+    </div>
+    <div class="almased-stat-circle">
+      <div class="stat-value">258%</div>
+      <div class="stat-desc">more waist<br>reduction</div>
+    </div>
+  </div>
+  <div class="almased-stats-subtext">
+    No other protein compares to Almased. From balanced blood sugar to a better metabolism, Almased has been shown in peer-reviewed studies to have numerous health benefits.
+  </div>
+  <button class="almased-stats-btn">
+    See our research studies
+    <span style="margin-left:8px;">&#8594;</span>
+  </button>
+</section>
 
   <script>
+  // Burger menu
   document.querySelector('.burger').addEventListener('click', function() {
     this.classList.toggle('open');
     document.querySelector('.nav-links').classList.toggle('open');
   });
 
+  // Tabs
   const tabs = document.querySelectorAll('.tab-list .tab');
   const tabTitle = document.querySelector('.tab-text h1');
 
@@ -225,9 +331,77 @@
       tabTitle.textContent = this.getAttribute('data-title');
     });
   });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Swiper JS initialization -->
+
+  // Daily Benefits Cards Slider
+  const cardsContainer = document.querySelector('.daily-benefits-cards');
+  const cards = Array.from(document.querySelectorAll('.benefit-card'));
+  const prevBtn = document.querySelector('.benefit-arrow.prev');
+  const nextBtn = document.querySelector('.benefit-arrow.next');
+  const bars = document.querySelectorAll('.benefits-bar');
+
+  function getVisibleCards() {
+    if (window.innerWidth <= 600) return 1;
+    if (window.innerWidth <= 900) return 2;
+    return 4;
+  }
+
+  let scrollIndex = 0;
+
+  function updateCards() {
+    const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(cardsContainer).gap || 0);
+    cardsContainer.scrollTo({
+      left: scrollIndex * cardWidth,
+      behavior: 'smooth'
+    });
+    updatePagination();
+  }
+
+  function updateArrowState() {
+    const visibleCards = getVisibleCards();
+    prevBtn.disabled = scrollIndex === 0;
+    nextBtn.disabled = scrollIndex >= cards.length - visibleCards;
+  }
+
+  function updatePagination() {
+    bars.forEach((bar, idx) => {
+      if (idx === scrollIndex) {
+        bar.classList.add('active');
+      } else {
+        bar.classList.remove('active');
+      }
+    });
+  }
+
+  nextBtn.addEventListener('click', () => {
+    const visibleCards = getVisibleCards();
+    if (scrollIndex < cards.length - visibleCards) {
+      scrollIndex++;
+      updateCards();
+      updateArrowState();
+    }
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (scrollIndex > 0) {
+      scrollIndex--;
+      updateCards();
+      updateArrowState();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    const visibleCards = getVisibleCards();
+    if (scrollIndex > cards.length - visibleCards) {
+      scrollIndex = Math.max(0, cards.length - visibleCards);
+    }
+    updateCards();
+    updateArrowState();
+  });
+
+  updateArrowState();
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
   var swiper = new Swiper('.mySwiper', {
     loop: true,
