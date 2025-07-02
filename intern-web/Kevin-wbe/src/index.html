@@ -308,98 +308,206 @@
     <span style="margin-left:8px;">&#8594;</span>
   </button>
 </section>
+<!-- Add this after your stats section in index.html -->
+<section class="doctor-testimonial-section">
+  <div class="doctor-testimonial-header">
+    <p class="doctor-testimonial-proven">Proven Results from 32 University backed Studies on Almased</p>
+    <img class="doctor-testimonial-unis" src="img/sc1.jpg" alt="Universities Logos" />
+  </div>
+  <div class="doctor-testimonial-slider">
+    <div class="doctor-testimonial-cards">
+      <!-- Testimonial Card 1 -->
+      <div class="doctor-testimonial-card active">
+        <div class="doctor-testimonial-image">
+          <img src="img/dr1.jpg" alt="Doctor 1" />
+        </div>
+        <div class="doctor-testimonial-quote-block">
+          <div class="doctor-quote">
+            <span class="doctor-quote-mark">“</span>
+            <span class="doctor-quote-text">
+              If you are on GLP-1s, its important to supplement with Almased so you maintain muscle while still both losing weight and losing fat.
+            </span>
+            <span class="doctor-quote-mark end">”</span>
+          </div>
+          <div class="doctor-signature">
+            <img src="img/signature1.jpg" alt="Doctor Signature" />
+          </div>
+          <div class="doctor-signature-row">
+            <div class="doctor-names">
+              <a href="#" class="doctor-link">Dr Eric J Rosenbaum</a>
+              <span class="doctor-name">Dr Aloys Berg</span>
+            </div>
+            <button class="doctor-arrow doctor-arrow-next" aria-label="Next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial Card 2 -->
+      <div class="doctor-testimonial-card">
+        <div class="doctor-testimonial-image">
+          <img src="img/dr1.jpg" alt="Doctor 2" />
+        </div>
+        <div class="doctor-testimonial-quote-block">
+          <div class="doctor-quote">
+            <span class="doctor-quote-mark">“</span>
+            <span class="doctor-quote-text">
+              I'm doctor 2, it's important to supplement with Almased so you maintain muscle while still both losing weight and losing fat.
+            </span>
+            <span class="doctor-quote-mark end">”</span>
+          </div>
+          <div class="doctor-signature">
+            <img src="img/signature1.jpg" alt="Doctor Signature" />
+          </div>
+          <div class="doctor-signature-row">
+            <div class="doctor-names">
+              <a href="#" class="doctor-link">Dr Eric J Rosenbaum</a>
+              <span class="doctor-name">Dr Aloys Berg</span>
+            </div>
+            <button class="doctor-arrow doctor-arrow-next" aria-label="Next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial Card 3 -->
+      <div class="doctor-testimonial-card">
+        <div class="doctor-testimonial-image">
+          <img src="img/dr1.jpg" alt="Doctor 3" />
+        </div>
+        <div class="doctor-testimonial-quote-block">
+          <div class="doctor-quote">
+            <span class="doctor-quote-mark">“</span>
+            <span class="doctor-quote-text">
+              If you are on GLP-1s, its important to supplement with Almased so you maintain muscle while still both losing weight and losing fat.
+            </span>
+            <span class="doctor-quote-mark end">”</span>
+          </div>
+          <div class="doctor-signature">
+            <img src="img/signature1.jpg" alt="Doctor Signature" />
+          </div>
+          <div class="doctor-signature-row">
+            <div class="doctor-names">
+              <a href="#" class="doctor-link">Dr Eric J Rosenbaum</a>
+              <span class="doctor-name">Dr Aloys Berg</span>
+            </div>
+            <button class="doctor-arrow doctor-arrow-next" aria-label="Next">&#8594;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   <script>
   // Burger menu
-  document.querySelector('.burger').addEventListener('click', function() {
-    this.classList.toggle('open');
-    document.querySelector('.nav-links').classList.toggle('open');
+document.querySelector('.burger').addEventListener('click', function() {
+  this.classList.toggle('open');
+  document.querySelector('.nav-links').classList.toggle('open');
+});
+
+// Tabs
+const tabs = document.querySelectorAll('.tab-list .tab');
+const tabTitle = document.querySelector('.tab-text h1');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', function() {
+    tabs.forEach(t => {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    this.classList.add('active');
+    this.setAttribute('aria-selected', 'true');
+    tabTitle.textContent = this.getAttribute('data-title');
   });
+});
 
-  // Tabs
-  const tabs = document.querySelectorAll('.tab-list .tab');
-  const tabTitle = document.querySelector('.tab-text h1');
+// Daily Benefits Cards Slider
+const cardsContainer = document.querySelector('.daily-benefits-cards');
+const cards = Array.from(document.querySelectorAll('.benefit-card'));
+const prevBtn = document.querySelector('.benefit-arrow.prev');
+const nextBtn = document.querySelector('.benefit-arrow.next');
+const bars = document.querySelectorAll('.benefits-bar');
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', function() {
-      tabs.forEach(t => {
-        t.classList.remove('active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      this.classList.add('active');
-      this.setAttribute('aria-selected', 'true');
-      tabTitle.textContent = this.getAttribute('data-title');
-    });
+function getVisibleCards() {
+  if (window.innerWidth <= 600) return 1;
+  if (window.innerWidth <= 900) return 2;
+  return 4;
+}
+
+let scrollIndex = 0;
+
+function updateCards() {
+  const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(cardsContainer).gap || 0);
+  cardsContainer.scrollTo({
+    left: scrollIndex * cardWidth,
+    behavior: 'smooth'
   });
+  updatePagination();
+}
 
-  // Daily Benefits Cards Slider
-  const cardsContainer = document.querySelector('.daily-benefits-cards');
-  const cards = Array.from(document.querySelectorAll('.benefit-card'));
-  const prevBtn = document.querySelector('.benefit-arrow.prev');
-  const nextBtn = document.querySelector('.benefit-arrow.next');
-  const bars = document.querySelectorAll('.benefits-bar');
+function updateArrowState() {
+  const visibleCards = getVisibleCards();
+  prevBtn.disabled = scrollIndex === 0;
+  nextBtn.disabled = scrollIndex >= cards.length - visibleCards;
+}
 
-  function getVisibleCards() {
-    if (window.innerWidth <= 600) return 1;
-    if (window.innerWidth <= 900) return 2;
-    return 4;
-  }
-
-  let scrollIndex = 0;
-
-  function updateCards() {
-    const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(cardsContainer).gap || 0);
-    cardsContainer.scrollTo({
-      left: scrollIndex * cardWidth,
-      behavior: 'smooth'
-    });
-    updatePagination();
-  }
-
-  function updateArrowState() {
-    const visibleCards = getVisibleCards();
-    prevBtn.disabled = scrollIndex === 0;
-    nextBtn.disabled = scrollIndex >= cards.length - visibleCards;
-  }
-
-  function updatePagination() {
-    bars.forEach((bar, idx) => {
-      if (idx === scrollIndex) {
-        bar.classList.add('active');
-      } else {
-        bar.classList.remove('active');
-      }
-    });
-  }
-
-  nextBtn.addEventListener('click', () => {
-    const visibleCards = getVisibleCards();
-    if (scrollIndex < cards.length - visibleCards) {
-      scrollIndex++;
-      updateCards();
-      updateArrowState();
+function updatePagination() {
+  bars.forEach((bar, idx) => {
+    if (idx === scrollIndex) {
+      bar.classList.add('active');
+    } else {
+      bar.classList.remove('active');
     }
   });
+}
 
-  prevBtn.addEventListener('click', () => {
-    if (scrollIndex > 0) {
-      scrollIndex--;
-      updateCards();
-      updateArrowState();
-    }
-  });
-
-  window.addEventListener('resize', () => {
-    const visibleCards = getVisibleCards();
-    if (scrollIndex > cards.length - visibleCards) {
-      scrollIndex = Math.max(0, cards.length - visibleCards);
-    }
+nextBtn.addEventListener('click', () => {
+  const visibleCards = getVisibleCards();
+  if (scrollIndex < cards.length - visibleCards) {
+    scrollIndex++;
     updateCards();
     updateArrowState();
+  }
+});
+
+prevBtn.addEventListener('click', () => {
+  if (scrollIndex > 0) {
+    scrollIndex--;
+    updateCards();
+    updateArrowState();
+  }
+});
+
+window.addEventListener('resize', () => {
+  const visibleCards = getVisibleCards();
+  if (scrollIndex > cards.length - visibleCards) {
+    scrollIndex = Math.max(0, cards.length - visibleCards);
+  }
+  updateCards();
+  updateArrowState();
+});
+
+updateArrowState();
+
+// Doctor testimonial slider arrow button
+(function () {
+  const docCards = document.querySelectorAll('.doctor-testimonial-card');
+  const cardsContainer = document.querySelector('.doctor-testimonial-cards');
+  let current = 0;
+
+  function showCard(idx) {
+    docCards.forEach((card, i) => {
+      card.classList.toggle('active', i === idx);
+    });
+  }
+
+  // Use event delegation so the arrow always works
+  cardsContainer.addEventListener('click', function (e) {
+    if (e.target.classList.contains('doctor-arrow-next')) {
+      current = (current + 1) % docCards.length;
+      showCard(current);
+    }
   });
 
-  updateArrowState();
-
+  showCard(current);
+})();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>

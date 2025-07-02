@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Miller Display';
+  src: url('https://fonts.cdnfonts.com/s/17463/MillerDisplay-Roman.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   margin: 0;
   padding: 0;
@@ -894,7 +900,231 @@ margin: 32px 0 0 0;
 .almased-stats-btn:hover {
   background: #238014;
 }
+/* Doctor Testimonial Section CSS */
+/* Place this after your other CSS or in the same file */
 
+/* Section wrapper */
+.doctor-testimonial-section {
+  width: 100vw;
+  background: #fff;
+  margin: 0 auto 0 auto;
+  padding: 0;
+  font-family: 'Jost', Arial, sans-serif;
+}
+
+/* Header with yellow background and university bar */
+.doctor-testimonial-header {
+  width: 100vw;
+  background: #f9f175;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 0 18px 0;
+}
+
+.doctor-testimonial-proven {
+  color: #238014;
+  font-family: 'Jost', Arial, sans-serif;
+  font-size: 1.9rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 18px;
+  letter-spacing: 0.01em;
+}
+
+.doctor-testimonial-unis {
+  
+  max-width: 90vw;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Slider container: now almost full width, 50px margin left/right */
+.doctor-testimonial-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  max-width: none;
+  margin: 48px 0 0 0;
+  padding: 0;
+}
+
+/* Cards container: almost full width, 50px margin left/right */
+.doctor-testimonial-cards {
+  display: flex;
+  width: calc(100vw - 100px);
+  max-width: 1600px;
+  margin: 0 50px;
+  position: relative;
+  min-height: 350px;
+  overflow: hidden;
+}
+
+/* Each card: always flex, only active is visible */
+.doctor-testimonial-card {
+  min-width: 100%;
+  max-width: 100%;
+  background: #f1e8e6;
+  border-radius: 18px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  box-shadow: 0 2px 16px 0 rgba(34, 80, 20, 0.06);
+  overflow: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.doctor-testimonial-card.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  z-index: 1;
+}
+
+/* Doctor image column */
+.doctor-testimonial-image {
+  flex: 1 1 40%;
+  min-width: 260px;
+  max-width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.doctor-testimonial-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px 0 0 18px;
+  display: block;
+}
+
+/* Quote and signature column */
+.doctor-testimonial-quote-block {
+  flex: 2 1 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #f1e8e6;
+  padding: 48px 48px 32px 48px;
+  position: relative;
+}
+
+.doctor-quote {
+  color: #238014;
+  font-family: 'Jost', Arial, sans-serif;
+  font-size: 2.3rem;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 38px;
+  position: relative;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+}
+
+.doctor-quote-mark {
+  font-size: 2.9rem;
+  font-family: 'Jost', Arial, sans-serif;
+  color: #238014;
+  margin-right: 8px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.doctor-quote-mark.end {
+  margin-left: 8px;
+}
+
+.doctor-quote-text {
+  font-family: 'Miller Display', serif !important;
+  font-size: 2.3rem;
+  font-weight: 400;
+  color: #238014;
+  line-height: 1.4;
+}
+.doctor-link,
+.doctor-name {
+  font-size: 1.45rem;
+}
+
+.doctor-signature-row {
+display: flex;
+  align-items: center;
+  justify-content: space-between; /* Push names left, arrow right */
+  gap: 32px;
+  margin-top: 32px;
+  width: 100%;
+}
+
+.doctor-signature img {
+  width: 220px;
+  height: 120px;
+  object-fit: contain;
+  display: block;
+  font-family: 'Miller Display', serif;
+}
+
+.doctor-names {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  margin-left: 18px;
+}
+
+.doctor-link {
+  color: #238014;
+  font-family: 'Jost', Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.doctor-link:hover {
+  color: #7ac143;
+}
+
+.doctor-name {
+  color: #55AB26;
+  font-family: 'Jost', Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Arrow button inside the card */
+.doctor-arrow {
+  background: none;
+  border: 2px solid #55AB26;
+  color: #55AB26;
+  border-radius: 50%;
+  width: 78.4px;
+  height: 78.4px;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  z-index: 2;
+}
+
+.doctor-arrow:hover {
+  background: #55AB26;
+  color: #fff;
+}
 @media (max-width: 900px) {
   
     header {
@@ -1158,6 +1388,13 @@ margin: 32px 0 0 0;
     height: 150px;
     font-size: 1.1rem;
   }
+  .doctor-testimonial-cards,
+  .doctor-testimonial-card,
+  .doctor-testimonial-card.active {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 0;
+    height: auto;
   
 }
 
@@ -1597,7 +1834,16 @@ margin: 32px 0 0 0;
   .almased-stats-title {
     font-size: 1.3rem;
   }
-  
+  .doctor-testimonial-cards,
+  .doctor-testimonial-card,
+  .doctor-testimonial-card.active {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 0;
+    height: auto;
+  }
 }
+}
+
 
 
