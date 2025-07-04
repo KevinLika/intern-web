@@ -31,22 +31,39 @@ header {
   z-index: 1000;
   background-color: white;
   border-bottom: 1px solid #ddd;
-  height: 80px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 4vw;
+  padding: 45px 5vw 30px 10vw;
+  font-size: 18px;
+}
+header,
+header * {
+  font-family: 'Jost', Arial, sans-serif !important;
 }
 
 .logo img {
-  max-height: 50px;
-  width: auto;
-  height: auto;
+ max-height: 75px;
+ max-width: 144;
+  margin-right: 16px;
+  margin-left: 0;
+  margin-bottom: 0;
+  display: block;
+
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  flex: 0 0 auto; 
 }
 
 .nav-links {
   display: flex;
-  gap: 2vw;
+  gap: 1vw;
+  padding-top: 25px;
 }
 
 .nav-links a {
@@ -77,6 +94,7 @@ header {
   display: flex;
   gap: 12px;
   align-items: center;
+  padding-top: 25px;
 }
 
 .icons a {
@@ -125,6 +143,7 @@ header {
   justify-content: center;
   align-items: center;
   background-image: url('banner.jpg');
+
   background-size: cover;
   background-position: center;
   height: 550px; 
@@ -135,6 +154,29 @@ header {
   border: none;
   border-radius: 0;
   box-shadow: none;
+}
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(128, 128, 128, 0.5); 
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-banner > * {
+  position: relative;
+  z-index: 1;
+}
+.hero-banner,
+.hero-banner * {
+  font-family: 'Jost', Arial, sans-serif !important;
+}
+.almased-stats-section,
+.almased-stats-section * {
+  font-family: 'Jost', Arial, sans-serif !important;
+}
+.cta-button {
+  font-family: 'Jost', Arial, sans-serif !important;
 }
 
 .hero-content {
@@ -187,21 +229,23 @@ header {
   font-family: 'Jost', sans-serif;
   font-size: 2.2vw;
   font-weight: 400;
-  margin: 18px 0 32px 0;
+  margin: -10px 0 32px 0;
   letter-spacing: 0.04em;
+
   text-transform: none;
 }
 
 .cta-button {
-  margin-top: 32px;
+  margin-top: 60px;
   align-self: flex-start;
-  background: yellow;
+  background: #f9f175;
   border: none;
-  padding: 22px 48px;
-  font-size: 2vw;
-  font-weight: bold;
+  padding: 20px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
   color: #222 !important;
-  border-radius: 12px;
+  font-family: 'Jost', Arial, sans-serif !important;
+  border-radius: 8px;
   cursor: pointer;
   box-shadow: none;
   transition: background 0.2s, color 0.2s;
@@ -213,7 +257,9 @@ header {
 .hero-features {
   display: flex;
   flex-direction: row;
-  gap: 32px;
+  gap: 24px;
+  margin-bottom: 32px;
+  margin-top: -60px; 
   align-items: center;
   justify-content: flex-end;
   flex: 1 1 40%;
@@ -224,8 +270,9 @@ header {
   border: 3px solid #fff;
   border-radius: 50%;
   padding: 0;
-  width: 140px;
-  height: 140px;
+  width: 180px;
+  height: 180px;
+  font-size:1.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2248,7 +2295,7 @@ display: flex;
     border-bottom: 1px solid #ddd;
   }
   .burger {
-    display: flex !important;
+        display: flex !important;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -2259,16 +2306,15 @@ display: flex;
     cursor: pointer;
     margin-left: 0;
     margin-right: 12px;
+    margin-top: 30px;
     z-index: 201;
     padding: 0;
     order: 1;
-
     position: fixed;
-    top: 24px;
-    left: 2vw;
+                       
   }
   .logo {
-    flex: 1;
+      flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2300,7 +2346,7 @@ display: flex;
     background: #fff;
     box-shadow: 2px 0 12px rgba(0,0,0,0.12);
     z-index: 200;
-    padding-top: 60px;
+    padding-top: 80px;
     transition: transform 0.3s ease;
     transform: translateX(-100%);
   }
