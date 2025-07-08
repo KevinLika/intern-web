@@ -312,6 +312,7 @@
       <div class="doctor-testimonial-card active">
         <div class="doctor-testimonial-image">
           <img src="img/dr1.jpg" alt="Doctor 1" />
+          <button class="doctor-arrow doctor-arrow-prev" aria-label="Previous" style="position: absolute; left: 32px; bottom: 32px;">&#8592;</button>
         </div>
         <div class="doctor-testimonial-quote-block">
           <div class="doctor-quote">
@@ -336,6 +337,7 @@
       <div class="doctor-testimonial-card">
         <div class="doctor-testimonial-image">
           <img src="img/dr1.jpg" alt="Doctor 2" />
+          <button class="doctor-arrow doctor-arrow-prev" aria-label="Previous" style="position: absolute; left: 32px; bottom: 32px;">&#8592;</button>
         </div>
         <div class="doctor-testimonial-quote-block">
           <div class="doctor-quote">
@@ -361,6 +363,7 @@
       <div class="doctor-testimonial-card">
         <div class="doctor-testimonial-image">
           <img src="img/dr1.jpg" alt="Doctor 3" />
+          <button class="doctor-arrow doctor-arrow-prev" aria-label="Previous" style="position: absolute; left: 32px; bottom: 32px;">&#8592;</button>
         </div>
         <div class="doctor-testimonial-quote-block">
           <div class="doctor-quote">
@@ -380,53 +383,6 @@
             </div>
             <button class="doctor-arrow doctor-arrow-next" aria-label="Next">&#8594;</button>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="protein-section">
-  <h2 class="protein-title">The Natural Health &amp; Weight loss protein shake</h2>
-  <div class="protein-grid">
-
-    <div class="protein-card protein-card-text">
-      <h3>Beyond a protein<br>shake, It’s healing<br>from within</h3>
-      <p class="protein-desc">
-        Almased’s powerful naturally occurring bioactive peptides improve your health, energy, immunity- its the best daily nutrition
-      </p>
-      <div class="protein-feature">
-        <img src="img/help1.jpg" alt="Liver Icon" class="protein-feature-icon" />
-        <span class="protein-feature-text">Helps unclog fat from the liver</span>
-      </div>
-    </div>
-    <div class="protein-card protein-card-image">
-      <img src="img/olive1.png" alt="Venn Diagram" class="protein-img" />
-    </div>
-    <div class="protein-card protein-card-person">
-  <button class="protein-arrow protein-arrow-top-left" aria-label="Previous">&#8592;</button>
-  <button class="protein-arrow protein-arrow-left" aria-label="Previous">&#8592;</button>
-  <img src="img/person1.jpg" alt="Person" class="protein-img" />
-</div>
-    <div class="protein-card protein-card-stats">
-      <div class="protein-stats-header">
-        <span>Made from Natural<br>Ingredients</span>
-        <button class="protein-arrow protein-arrow-right" aria-label="Next">&#8594;</button>
-      </div>
-      <div class="protein-stats-list">
-        <div class="protein-stat">
-          <span class="protein-stat-plus">+</span>
-          <span class="protein-stat-number">80</span>
-          <span class="protein-stat-label">Bioactive<br>Peptides</span>
-        </div>
-        <div class="protein-stat">
-          <span class="protein-stat-plus">+</span>
-          <span class="protein-stat-number">20</span>
-          <span class="protein-stat-label">Amino<br>Acids</span>
-        </div>
-        <div class="protein-stat">
-          <span class="protein-stat-plus">+</span>
-          <span class="protein-stat-number">22</span>
-          <span class="protein-stat-label">Vitamins &amp;<br>Minerals</span>
         </div>
       </div>
     </div>
@@ -667,10 +623,14 @@ updateArrowState();
     });
   }
 
-  // Use event delegation so the arrow always works
+  // Use event delegation so both arrows work
   cardsContainer.addEventListener('click', function (e) {
     if (e.target.classList.contains('doctor-arrow-next')) {
       current = (current + 1) % docCards.length;
+      showCard(current);
+    }
+    if (e.target.classList.contains('doctor-arrow-prev')) {
+      current = (current - 1 + docCards.length) % docCards.length;
       showCard(current);
     }
   });
