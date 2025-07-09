@@ -412,11 +412,11 @@ header * {
   flex-direction: column;
 }
 
-.tab-text h1 {
+.tab-text h6 {
   color: #238014;
-  font-family: 'Jost', Arial, sans-serif;
-  font-size: 3rem;
-  font-weight: 200;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 3.5rem;
+  font-weight: 100;
   margin-bottom: 32px;
   line-height: 1.1;
 }
