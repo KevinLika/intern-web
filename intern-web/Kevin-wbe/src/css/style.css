@@ -147,7 +147,7 @@ header * {
   background-image: url('banner.jpg');
   background-size: cover;
   background-position: center;
-  height: 550px; 
+  height: 600px; 
   color: black;
   position: relative;
   gap: 0;
@@ -156,6 +156,7 @@ header * {
   border-radius: 0;
   box-shadow: none;
   font-family: 'Jost';
+  transition: background-image 0.8s cubic-bezier(.77,0,.18,1);
 }
 .hero-banner::before {
   content: "";
@@ -180,7 +181,28 @@ header * {
 .cta-button {
   font-family: 'Jost', Arial, sans-serif !important;
 }
+.hero-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin: 24px 0 0 0;
+  width: 100%;
+}
 
+.hero-bar {
+  display: inline-block;
+  width: 48px;
+  height: 4px;
+  border-radius: 2px;
+  background: #c7c7c7;
+  opacity: 1;
+  transition: background 0.2s;
+}
+
+.hero-bar.active {
+  background: #fff;
+}
 .hero-content {
   width: 100%;
   max-width: 1200px;
@@ -254,6 +276,27 @@ header * {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.hero-pause-btn {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  background:transparent;
+  color: #fff;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s;
+}
+.hero-title-col {
+  position: relative;
 }
 
 .hero-features {

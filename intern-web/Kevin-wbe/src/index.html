@@ -76,7 +76,15 @@
           </div>
         </div>
       </div>
+      <div class="hero-pagination">
+        <span class="hero-bar active"></span>
+        <span class="hero-bar"></span>
+        <span class="hero-bar"></span>
+      </div>
     </div>
+    <button class="hero-pause-btn" aria-label="Pause hero carousel">
+  &#10073;&#10073; <!-- Pause icon -->
+</button>
   </div>
   <section class="almased-tabs">
     <div class="tab-list" role="tablist">
@@ -503,6 +511,66 @@ document.querySelector('.burger').addEventListener('click', function() {
   this.classList.toggle('open');
   document.querySelector('.nav-links').classList.toggle('open');
 });
+const heroBanner = document.querySelector('.hero-banner');
+const heroBars = document.querySelectorAll('.hero-bar');
+const heroImages = [
+  'url("css/banner.jpg")',
+  'url("img/hero2.jpg")',
+  'url("img/hero3.jpg")'
+];
+let heroIndex = 0;
+let heroInterval;
+const pauseBtn = document.querySelector('.hero-pause-btn');
+let isPaused = false;
+
+function updateHeroBanner() {
+  heroBanner.style.backgroundImage = heroImages[heroIndex];
+  heroBars.forEach((bar, idx) => {
+    bar.classList.toggle('active', idx === heroIndex);
+  });
+}
+
+function nextHero() {
+  heroIndex = (heroIndex + 1) % heroImages.length;
+  updateHeroBanner();
+}
+
+function goToHero(idx) {
+  heroIndex = idx;
+  updateHeroBanner();
+  resetHeroInterval();
+}
+
+function resetHeroInterval() {
+  clearInterval(heroInterval);
+  if (!isPaused) {
+    heroInterval = setInterval(nextHero, 3000);
+  }
+}
+
+// Make hero bars clickable
+heroBars.forEach((bar, idx) => {
+  bar.style.cursor = "pointer";
+  bar.addEventListener('click', () => goToHero(idx));
+});
+
+// Pause/play button logic
+pauseBtn.addEventListener('click', () => {
+  isPaused = !isPaused;
+  if (isPaused) {
+    clearInterval(heroInterval);
+    pauseBtn.innerHTML = '&#9658;'; // Play icon
+    pauseBtn.setAttribute('aria-label', 'Play hero carousel');
+  } else {
+    heroInterval = setInterval(nextHero, 3000);
+    pauseBtn.innerHTML = '&#10073;&#10073;'; // Pause icon
+    pauseBtn.setAttribute('aria-label', 'Pause hero carousel');
+  }
+});
+
+// Initial render and start interval
+updateHeroBanner();
+resetHeroInterval();
 // Tabs
 const tabs = document.querySelectorAll('.tab-list .tab');
 const tabTitle = document.querySelector('.tab-text h1');
@@ -550,14 +618,12 @@ function updatePagination() {
 }
 
 nextBtn.addEventListener('click', () => {
-  // Move first card to the end
   cards.push(cards.shift());
   renderCards();
   updatePagination();
 });
 
 prevBtn.addEventListener('click', () => {
-  // Move last card to the front
   cards.unshift(cards.pop());
   renderCards();
   updatePagination();
@@ -568,7 +634,6 @@ window.addEventListener('resize', () => {
   updatePagination();
 });
 
-// Initial render
 renderCards();
 updatePagination();
 
