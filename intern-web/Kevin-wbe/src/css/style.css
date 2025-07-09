@@ -1824,6 +1824,20 @@ display: flex;
   opacity: 0.95;
 }
 
+@media (max-width:1024px)
+{
+.hero-features {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    gap: 18px;
+  }
+.tab-list .tab {
+  min-height: 80px;
+  height: 80px;
+}
+
 @media (max-width: 900px) {
   
     header {
@@ -1979,7 +1993,7 @@ display: flex;
     text-align: center;
     margin-bottom: 18px;
   }
-  .tab-text h1 {
+  .tab-text h6{
     font-size: 2rem;
     margin-bottom: 18px;
   }
@@ -2554,7 +2568,7 @@ display: flex;
     text-align: center;
     margin-bottom: 12px;
   }
-  .tab-text h1 {
+  .tab-text h6 {
     font-size: 1.2rem;
     margin-bottom: 12px;
   }
@@ -3014,5 +3028,100 @@ display: flex;
   .footer-link {
     font-size: 0.95rem;
   }
+}
+@media (max-width: 450px) {
+  header {
+    height: 120px;
+    padding: 8px 2vw;
+  }
+  .logo img {
+    max-height: 50px;
+    max-width: 100px;
+    margin-right: 6px;
+  }
+  .burger {
+    width: 22px;
+    height: 22px;
+    margin-right: 4px;
+    margin-top: 8px;
+  }
+  .burger span {
+    width: 22px;
+    height: 2px;
+  }
+  .icons img {
+    width: 18px;
+    height: 18px;
+  }
+  .icons {
+    margin-right: 4px;
+  }
+  .daily-benefits-title {
+  text-align: center;
+  color: #238014;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: lighter;
+  margin-bottom: 38px;
+  letter-spacing: 0.01em;
+}
+.benefit-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px 0 rgba(34, 80, 20, 0.06);
+  overflow: hidden;
+  width: 270px;
+  min-width: 250px;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  height: 410px; 
+}
+.doctor-testimonial-proven {
+  color: #238014;
+  font-family: 'Jost', Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 18px;
+  letter-spacing: 0.01em;
+}
+.recipe-title {
+  color: #238014;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 38px;
+  letter-spacing: 0.01em;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.available-logo {
+  height: 13px;
+}
+.newsletter-signup-form input[type="email"] {
+  flex: 1 1 auto;
+  font-size: 0.4rem;
+  padding: 12px 12px;
+  border: 1.5px solid #55B046;
+  border-radius: 32px;
+  outline: none;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  background: transparent;
+  color: #3CA12C;
+  transition: border 0.2s;
+  height: 30px;
+}
+.newsletter-signup-form input[type="email"]::placeholder {
+  color: #3CA12C;
+  opacity: 1;
+  font-size: 1rem;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+}
+}
 }
 }
