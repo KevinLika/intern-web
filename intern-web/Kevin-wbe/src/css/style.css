@@ -277,6 +277,15 @@ header * {
   align-items: center;
   justify-content: center;
 }
+.cta-button:hover {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff !important;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.cta-button:hover svg {
+  stroke: #fff;
+}
 .hero-pause-btn {
   position: absolute;
   right: 24px;
@@ -376,11 +385,11 @@ header * {
   align-items: flex-start; 
   justify-content: flex-start;
   background: #fff;
-  border: 2px solid var(--almased-green);
+  border: 2px solid lightgray;
   border-radius: 12px;
   padding: 10px 32px;
   font-size: 1.15rem;
-  color: var(--almased-green);
+  color: #55AB26;
   font-family: 'Jost', Arial, sans-serif;
   font-weight: 400;
   cursor: pointer;
@@ -395,7 +404,7 @@ header * {
 .tab-plus {
   font-size: 1.1rem;
 
-  color: var(--almased-green);
+  color: gray;
   line-height: 1;
   margin-bottom: 0; 
   margin-left: 0;
@@ -414,9 +423,9 @@ header * {
 .tab.active,
 .tab[aria-selected="true"],
 .tab:hover {
-  background: var(--almased-green);
+  background: #55AB26;
   color: #fff;
-  border: 2px solid var(--almased-green);
+  border: 2px solid #55AB26;
   font-weight: 500;
 }
 
@@ -1925,7 +1934,7 @@ display: flex;
 
   .hero-content {
     padding: 24px 4vw;
-    margin-top: 120px;
+    margin-top: 50px;
     align-items: center;
   }
   .hero-title-col h1 {
@@ -3078,7 +3087,7 @@ display: flex;
     padding: 8px 2vw;
   }
   .logo img {
-    max-height: 50px;
+    max-height: 80px;
     max-width: 100px;
     margin-right: 6px;
   }
