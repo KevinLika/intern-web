@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home page</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -110,18 +110,62 @@
       </button>
     </div>
     <div class="tab-panel active" role="tabpanel">
-      <div class="tab-content">
-        <div class="tab-text">
-          <h6>Get Started with your Almased Welcome Pack</h6>
-          <p>
-            Lorem ipsum dolor sit amet consectetur. Et aenean auctor pharetra risus vel vestibulum vel.
-            Sed pellentesque nibh arcu risus eget massa.
-          </p>
-          <button class="tab-cta-button">SHOP NOW</button>
-        </div>
-        <div class="tab-image">
-          <img src="img/tab-photo.png" alt="Almased Welcome Pack" />
-        </div>
+    <div class="tab-content">
+      <div class="tab-text">
+        <h6>Get Started with your Almased Welcome Pack</h6>
+        <p>Lorem ipsum dolor sit amet consectetur. Et aenean auctor pharetra risus vel vestibulum vel. Sed pellentesque nibh arcu risus eget massa.</p>
+        <button class="tab-cta-button">SHOP NOW</button>
+      </div>
+      <div class="tab-image">
+        <img src="img/tab-photo.png" alt="Almased Welcome Pack" />
+      </div>
+    </div>
+  </div>
+  <div class="tab-panel" role="tabpanel">
+    <div class="tab-content">
+      <div class="tab-text">
+        <h6>Weight Loss</h6>
+        <p>Lorem ipsum dolor sit amet consectetur. Et aenean auctor pharetra risus vel vestibulum vel. Sed pellentesque nibh arcu risus eget massa.</p>
+        <button class="tab-cta-button">SHOP NOW</button>
+      </div>
+      <div class="tab-image">
+        <img src="img/tab-photo.png" alt="Weight Loss" />
+      </div>
+    </div>
+  </div>
+  <div class="tab-panel" role="tabpanel">
+    <div class="tab-content">
+      <div class="tab-text">
+        <h6>Muscle Preservation</h6>
+        <p>Lorem ipsum dolor sit amet consectetur. Et aenean auctor pharetra risus vel vestibulum vel. Sed pellentesque nibh arcu risus eget massa.</p>
+        <button class="tab-cta-button">SHOP NOW</button>
+      </div>
+      <div class="tab-image">
+        <img src="img/tab-photo.png" alt="Muscle Preservation" />
+      </div>
+    </div>
+  </div>
+  <div class="tab-panel" role="tabpanel">
+    <div class="tab-content">
+      <div class="tab-text">
+        <h6>Muscle Gain</h6>
+        <p>Lorem ipsum dolor sit amet consectetur. Et aenean auctor pharetra risus vel vestibulum vel. Sed pellentesque nibh arcu risus eget massa.</p>
+        <button class="tab-cta-button">SHOP NOW</button>
+      </div>
+      <div class="tab-image">
+        <img src="img/tab-photo.png" alt="Muscle Gain" />
+      </div>
+    </div>
+  </div>
+  <div class="tab-panel" role="tabpanel">
+    <div class="tab-content">
+      <div class="tab-text">
+        <h6>All Health Goals</h6>
+        <p>Lorem ipsum dolor sit amet consectetur. Et aenean auctor pharetra risus vel vestibulum vel. Sed pellentesque nibh arcu risus eget massa.</p>
+        <button class="tab-cta-button">SHOP NOW</button>
+      </div>
+      <div class="tab-image">
+        <img src="img/tab-photo.png" alt="All Health Goals" />
       </div>
     </div>
   </section>
@@ -296,10 +340,11 @@
       <div class="stat-desc">more weight loss<br>than a low-fat diet</div>
     </div>
     <div class="almased-stat-circle">
-      <div class="stat-value">86%</div>
+      <div class="stat-value">86%</d  iv>
       <div class="stat-desc">more fat loss</div>
     </div>
-    <div class="almased-stat-circle">
+    </div>
+      <div class="almased-stat-circle">
       <div class="stat-value">258%</div>
       <div class="stat-desc">more waist<br>reduction</div>
     </div>
@@ -354,7 +399,7 @@
           <div class="doctor-quote">
             <span class="doctor-quote-mark">“</span>
             <span class="doctor-quote-text">
-              I'm doctor 2, it's important to supplement with Almased so you maintain muscle while still both losing weight and losing fat.
+              If you are on GLP-1s, its important to supplement with Almased so you maintain muscle while still both losing weight and losing fat.
             </span>
             <span class="doctor-quote-mark end">”</span>
           </div>
@@ -506,11 +551,11 @@
   </div>
 </footer>
   <script>
-  // Burger menu
 document.querySelector('.burger').addEventListener('click', function() {
   this.classList.toggle('open');
   document.querySelector('.nav-links').classList.toggle('open');
 });
+
 const heroBanner = document.querySelector('.hero-banner');
 const heroBars = document.querySelectorAll('.hero-bar');
 const heroImages = [
@@ -548,96 +593,156 @@ function resetHeroInterval() {
   }
 }
 
-// Make hero bars clickable
 heroBars.forEach((bar, idx) => {
   bar.style.cursor = "pointer";
   bar.addEventListener('click', () => goToHero(idx));
 });
 
-// Pause/play button logic
 pauseBtn.addEventListener('click', () => {
   isPaused = !isPaused;
   if (isPaused) {
     clearInterval(heroInterval);
-    pauseBtn.innerHTML = '&#9658;'; // Play icon
+    pauseBtn.innerHTML = '&#9658;';
     pauseBtn.setAttribute('aria-label', 'Play hero carousel');
   } else {
     heroInterval = setInterval(nextHero, 3000);
-    pauseBtn.innerHTML = '&#10073;&#10073;'; // Pause icon
+    pauseBtn.innerHTML = '&#10073;&#10073;';
     pauseBtn.setAttribute('aria-label', 'Pause hero carousel');
   }
 });
 
-// Initial render and start interval
 updateHeroBanner();
 resetHeroInterval();
-// Tabs
-const tabs = document.querySelectorAll('.tab-list .tab');
-const tabTitle = document.querySelector('.tab-text h1');
 
-tabs.forEach(tab => {
+
+const tabs = document.querySelectorAll('.tab-list .tab');
+const tabPanels = document.querySelectorAll('.tab-panel');
+
+tabs.forEach((tab, idx) => {
   tab.addEventListener('click', function() {
     tabs.forEach(t => {
       t.classList.remove('active');
       t.setAttribute('aria-selected', 'false');
     });
+    tabPanels.forEach(panel => panel.classList.remove('active'));
     this.classList.add('active');
     this.setAttribute('aria-selected', 'true');
-    tabTitle.textContent = this.getAttribute('data-title');
+    tabPanels[idx].classList.add('active');
   });
 });
 
-// Daily Benefits Cards Slider
+
 const cardsContainer = document.querySelector('.daily-benefits-cards');
-let cards = Array.from(document.querySelectorAll('.benefit-card'));
 const prevBtn = document.querySelector('.benefit-arrow.prev');
 const nextBtn = document.querySelector('.benefit-arrow.next');
 const bars = document.querySelectorAll('.benefits-bar');
+
+
+let cardsInner = cardsContainer.querySelector('.daily-benefits-cards-inner');
+if (!cardsInner) {
+  cardsInner = document.createElement('div');
+  cardsInner.className = 'daily-benefits-cards-inner';
+  while (
+    cardsContainer.firstChild &&
+    !cardsContainer.firstChild.classList?.contains('benefits-pagination') &&
+    !cardsContainer.firstChild.classList?.contains('benefits-arrows')
+  ) {
+    cardsInner.appendChild(cardsContainer.firstChild);
+  }
+  cardsContainer.insertBefore(cardsInner, cardsContainer.querySelector('.benefits-pagination'));
+}
+
+const gap = 14; 
+let currentIndex = 0;
+let activeBarIndex = 0;
+
+function getBenefitCards() {
+  return Array.from(cardsInner.querySelectorAll('.benefit-card'));
+}
+
+function getCardWidth() {
+  const cards = getBenefitCards();
+  return cards[0] ? cards[0].offsetWidth : 350;
+}
+
 function getVisibleCards() {
   if (window.innerWidth <= 600) return 1;
   if (window.innerWidth <= 900) return 2;
+  if (window.innerWidth <= 1024) return 3;
   return 4;
 }
 
-function renderCards() {
-  cardsContainer.innerHTML = '';
-  const visible = getVisibleCards();
-  for (let i = 0; i < visible; i++) {
-    cardsContainer.appendChild(cards[i]);
+function updateSlider(transition = true) {
+  const cardWidth = getCardWidth();
+  if (transition) {
+    cardsInner.style.transition = 'transform 0.5s cubic-bezier(.77,0,.18,1)';
+  } else {
+    cardsInner.style.transition = 'none';
   }
+  const translateX = -(currentIndex * (cardWidth + gap));
+  cardsInner.style.transform = `translateX(${translateX}px)`;
+  updatePagination();
 }
 
-const originalCards = Array.from(document.querySelectorAll('.benefit-card'));
 function updatePagination() {
-  const firstVisibleCard = cards[0];
-  const activeIdx = originalCards.indexOf(firstVisibleCard);
-
   bars.forEach((bar, idx) => {
-    bar.classList.toggle('active', idx === activeIdx);
+    bar.classList.toggle('active', idx === activeBarIndex);
   });
 }
 
 nextBtn.addEventListener('click', () => {
-  cards.push(cards.shift());
-  renderCards();
+  const visible = getVisibleCards();
+  const cardWidth = getCardWidth();
+  const cards = getBenefitCards();
+  const totalCards = cards.length;
+  const maxIndex = Math.max(0, totalCards - visible);
+
+  if (currentIndex < maxIndex) {
+    currentIndex++;
+    activeBarIndex = (activeBarIndex + 1) % bars.length;
+    updateSlider(true);
+  } else {
+    cardsInner.style.transition = 'transform 0.5s cubic-bezier(.77,0,.18,1)';
+    cardsInner.style.transform = `translateX(-${(currentIndex + 1) * (cardWidth + gap)}px)`;
+    setTimeout(() => {
+      cardsInner.appendChild(cardsInner.firstElementChild);
+      cardsInner.style.transition = 'none';
+      cardsInner.style.transform = `translateX(-${(currentIndex) * (cardWidth + gap)}px)`;
+    }, 500);
+    activeBarIndex = (activeBarIndex + 1) % bars.length;
+  }
   updatePagination();
 });
 
 prevBtn.addEventListener('click', () => {
-  cards.unshift(cards.pop());
-  renderCards();
+  const visible = getVisibleCards();
+  const cardWidth = getCardWidth();
+  const cards = getBenefitCards();
+  const totalCards = cards.length;
+  const maxIndex = Math.max(0, totalCards - visible);
+
+  if (currentIndex > 0) {
+    currentIndex--;
+    activeBarIndex = (activeBarIndex - 1 + bars.length) % bars.length;
+    updateSlider(true);
+  } else {
+
+    cardsInner.style.transition = 'none';
+    cardsInner.insertBefore(cardsInner.lastElementChild, cardsInner.firstElementChild);
+    cardsInner.style.transform = `translateX(-${(1) * (cardWidth + gap)}px)`;
+    void cardsInner.offsetWidth;
+    cardsInner.style.transition = 'transform 0.5s cubic-bezier(.77,0,.18,1)';
+    cardsInner.style.transform = `translateX(0px)`;
+    activeBarIndex = (activeBarIndex - 1 + bars.length) % bars.length;
+  }
   updatePagination();
 });
 
 window.addEventListener('resize', () => {
-  renderCards();
-  updatePagination();
+  updateSlider(false);
 });
 
-renderCards();
-updatePagination();
-
-// Doctor testimonial slider arrow button
+updateSlider(false);
 (function () {
   const docCards = document.querySelectorAll('.doctor-testimonial-card');
   const cardsContainer = document.querySelector('.doctor-testimonial-cards');
@@ -648,7 +753,6 @@ updatePagination();
       card.classList.toggle('active', i === idx);
     });
   }
-  // Use event delegation so both arrows work
   cardsContainer.addEventListener('click', function (e) {
     if (e.target.classList.contains('doctor-arrow-next')) {
       current = (current + 1) % docCards.length;
@@ -662,6 +766,18 @@ updatePagination();
 
   showCard(current);
 })();
+
+var swiper = new Swiper('.mySwiper', {
+  loop: true,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.arrow-next',
+    prevEl: '.arrow-prev',
+  },
+});
 </script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
